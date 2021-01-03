@@ -1,0 +1,38 @@
+
+USE [CustomerManageSystemDB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Customer_add]    Script Date: 03/01/2021 08:51:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Roshan>
+-- Create date: <Create,,2020Nov17>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_Customer_add]
+	@FName varchar(50),
+	@LName varchar(50),
+	@NIC varchar(10),
+	@MobileNo int,
+	@Email varchar(50),
+	@Birthday date,
+	@Address varchar(150),
+
+	@lastID int out
+AS
+BEGIN
+	INSERT INTO [CustomerManageSystemDB].[dbo].[Customer](FName,LName,NIC,MobileNo,Email,Birthday,Address) VALUES (
+	@FName,
+	@LName,
+	@NIC,
+	@MobileNo,
+	@Email,
+	@Birthday,
+	@Address)  SET @lastID = SCOPE_IDENTITY() RETURN @lastID
+END
+
+
+
+

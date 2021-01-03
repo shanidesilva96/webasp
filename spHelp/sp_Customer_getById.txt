@@ -1,0 +1,19 @@
+USE [CustomerManageSystemDB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_Customer_getById]    Script Date: 03/01/2021 08:53:48 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_Customer_getById]
+	@CustomerID int
+AS
+BEGIN
+	SELECT * FROM [CustomerManageSystemDB].[dbo].[Customer] WHERE CustomerID = @CustomerID
+END
+
