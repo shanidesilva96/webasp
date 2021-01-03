@@ -1,0 +1,134 @@
+									
+									//checkbox
+									
+									<div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <div class="form-inline">                                                    
+                                                    <input id="StockItem" class="magic-checkbox" type="checkbox">
+                                                    <label for="StockItem">Stock Item</label>
+                                                    <br />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									
+									
+									//view checkbox
+									
+									<div class="form-group">
+                                        <div class="form-inline">
+                                            @if (Model.StockItem == true)
+                                            {
+                                                <input id="StockItem" class="magic-checkbox" type="checkbox" checked>
+                                            }
+                                            else
+                                            {
+                                                <input id="StockItem" class="magic-checkbox" type="checkbox">
+                                            }
+                                            <label for="StockItem">Stock Item</label>
+                                            <br />
+                                        </div>
+                                    </div>
+									
+									
+									//textBox
+									
+									<div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Item Type</label>
+                                                    @Html.EditorFor(model => model.IDItemType, new { htmlAttributes = new { @class = "form-control", placeholder = "Item Type", @readonly = "readonly" } })
+                                                    @Html.ValidationMessageFor(model => model.IDItemType, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+										
+										
+										//DropDown
+										
+										<div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Price list</label>
+                                                    @Html.DropDownListFor(model => model.IDPricelist, new SelectList(Model.ListPricelist, "TypeMasterDetailsId", "valueName"), "Price list", new { @class = "form-control select2" })
+                                                    @Html.ValidationMessageFor(m => m.IDPricelist, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+										
+										
+										//DateFrom DateTo
+										
+										<div class="row">
+               
+											<div class="col-md-2 col-sm-2 col-xs-12">
+											<label>Date From</label>
+											</div>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class='input-group date'>
+													@Html.TextBoxFor(model => model.DateFrom, "{0:dd/MMMM/yyyy}", new { @class = "form-control date-picker", placeholder = @Html.DisplayNameFor(model => model.DateFrom) })
+													<span class="input-group-addon">
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
+												@Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger" })
+											</div>            
+           									
+											<div class="col-md-2 col-sm-2 col-xs-12">
+												<label>Date To</label>
+											</div>
+											<div class="col-md-3 col-sm-3 col-xs-12">
+												<div class='input-group date'>
+													@Html.TextBoxFor(model => model.DateTo, "{0:dd/MMMM/yyyy}", new { @class = "form-control date-picker", placeholder = @Html.DisplayNameFor(model => model.DateTo) })
+													<span class="input-group-addon">
+														<span class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
+												@Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger" })
+											</div>
+										</div>
+
+
+										//Btnclear & Save
+										
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-inline">
+													<a href="@Url.Action("AssetMaster","Asset")" style="width:90px" class="btn btn-primary rounded">Clear</a>
+													<button style="width:90px" type="button" name="submitbutton" value="Load" class="btn btn-primary rounded" onclick="EditAssetFunction()">Save</button>
+												</div>
+											</div>
+										</div>
+										
+										
+										//table
+										
+										<div class="x_panel">
+											<div class="x_title">
+												<h2>Table Name</h2>
+												<div class="clearfix"></div>
+											</div>
+											<div class="x_content">
+												<table id="datatable" class="table table-striped table-bordered">
+													<thead>
+														<tr>
+															<th>hName</th>														
+														</tr>
+													</thead>
+													<tbody>
+														@if (Model.ResultList != null)
+														{
+															foreach (var asset in Model.ResultList)
+															{
+																<tr>
+																	<td>@asset.AssetCode</td>																	
+																</tr>
+															}
+														}
+													</tbody>
+												</table>
+											</div>
+						
+										</div>
