@@ -1,1 +1,7 @@
 
+INSERT INTO  OPENROWSET('Sqloledb','192.168.222.6'; 'scientqazertec'; 'Awsxfc@1234',AredcpicoDB. [dbo].[AMF_SystemLoginDeatailsLog])
+           ([SystemName]
+           ,[Description]
+           ,[UserName]
+           ,[LoginTime]
+           ,[LogOutTime])
