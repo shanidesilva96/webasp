@@ -6,3 +6,10 @@ INSERT INTO  OPENROWSET('Sqloledb','192.168.222.6'; ''; '@1234',AredcpicoDB. [db
            ,[UserName]
            ,[LoginTime]
            ,[LogOutTime])
+SELECT
+      [SystemName]
+      ,[Description]
+      ,[UserName]
+      ,[LoginTime]
+      ,[LogOutTime]
+  FROM [ArpicoDB].[dbo].[AMF_SystemLoginDeatailsLog]
