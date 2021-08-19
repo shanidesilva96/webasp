@@ -1,3 +1,4 @@
+Copy table to another tabele in anthor datadabe
 
 INSERT INTO  OPENROWSET('Sqloledb','192.168.222.6'; ''; '@1234',AredcpicoDB. [dbo].[AMF_SystemLoginDeatailsLog])
            ([SystemName]
