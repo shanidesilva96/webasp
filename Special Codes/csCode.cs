@@ -51,3 +51,42 @@ public void ExportXLS(DataTable dtdata, string attached)
             return table;
         }
     }
+
+
+
+//Excel file download using DataTable
+public void ExportXLS4(DataTable dtdata, string attached)
+        {
+            string attach = attached;
+            Response.ClearContent();
+            Response.AddHeader("content-disposition", attach);
+            Response.ContentType = "application/ms-excel";
+            if (dtdata != null)
+            {
+                foreach (DataColumn dc in dtdata.Columns)
+                {
+                    Response.Write(dc.ColumnName + "\t");
+                }
+                Response.Write(System.Environment.NewLine);
+                int c = 0;
+                foreach (DataRow dr in dtdata.Rows)
+                {
+                    c++;
+                    if (c == 16)
+                    {
+
+                    }
+                    for (int i = 0; i < dtdata.Columns.Count; i++)
+                    {
+                        if (dr[i].ToString().Trim() == "LF/NRM/19/086490")
+                        {
+
+                        }
+
+                        Response.Write(dr[i].ToString().Trim().Replace("\n", " ").Replace("\t", " ") + "\t");
+                    }
+                    Response.Write("\n");
+                }
+                Response.End();
+            }
+        }
