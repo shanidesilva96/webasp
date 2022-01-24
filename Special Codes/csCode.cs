@@ -90,3 +90,7 @@ public void ExportXLS4(DataTable dtdata, string attached)
                 Response.End();
             }
         }
+
+
+ Cashclear 
+ [OutputCache(Location = OutputCacheLocation.None,NoStore = true, Duration = 0, VaryByParam = "*")]
