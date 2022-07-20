@@ -1,1 +1,6 @@
 --sql
+
+When we pass the data to a excel, value is coverted by Excel. Ex: in SQL > 0001234  >>> when select and put in to excel result show as 1234 (with out 0 s).
+
+solution is ,
+(('=TEXT(0,"'+(SELECT CAST(CRIB_MasterRequets.CustomerNIC AS  nvarchar))+'")')) AS CustomerNIC
