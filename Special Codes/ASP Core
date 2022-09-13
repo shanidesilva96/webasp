@@ -1,0 +1,4 @@
+DB Migration Code
+
+--Get * Tables from database
+scaffold-dbcontext "Data Source=HOD-LT-IT006;Initial Catalog=Supermarket;User ID=sa;Password=@dmnL0ca1" Microsoft.EntityFrameworkCore.SqlServer -outputdir Models -dataannotations
