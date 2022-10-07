@@ -4,3 +4,7 @@ When we pass the data to a excel, value is coverted by Excel. Ex: in SQL > 00012
 
 solution is ,
 (('=TEXT(0,"'+(SELECT CAST(CRIB_MasterRequets.CustomerNIC AS  nvarchar))+'")')) AS CustomerNIC
+
+
+--mearge two sql select
+(select + x.[BPCode] + ', ' FROM [Destinity_Lease_29.09].[dbo].[destinity_FD_HolderDetails] WHERE [FDNo] = x.[FDNo] FOR XML PATH('')) AS aa
